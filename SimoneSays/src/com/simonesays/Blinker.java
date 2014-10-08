@@ -17,16 +17,16 @@ public class Blinker implements Runnable{
             int blink = blinky.get(i);
             switch(blink){
                 case 0: 
-                    greenbutton.blink();
+                    SimoneUI.greenbutton.blink();
                     break;
                 case 1:
-                    redbutton.blink();
+                    SimoneUI.redbutton.blink();
                     break;
                 case 2:
-                    bluebutton.blink();
+                    SimoneUI.bluebutton.blink();
                     break;
                 case 3:
-                    yellowbutton.blink();
+                    SimoneUI.yellowbutton.blink();
                     break;
             }
             try {

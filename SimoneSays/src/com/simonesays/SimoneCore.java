@@ -1,25 +1,33 @@
 package com.simonesays;
 
 import java.math.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimoneCore {
 
+    static int returnedindex;
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         //
         // Testing
-
+        Blinker blinker = new Blinker();
+        Thread thread1 = new Thread(blinker);
+        thread1.start();
+        SimoneUI simone = new SimoneUI();
+        
+        
     }
 
     private List<Integer> currentPattern = new ArrayList<Integer>();
     private List<Integer> inputPattern   = new ArrayList<Integer>();
-    private boolean continue;
+    private boolean cont;
 
     // Was generateArray() in the UML, but we need it to be able to grow
     // dynamically, as the users passes each level. This adds a random
     // integer between 0 and 3 to the end of the currentPattern array.
     public void addToPattern() {
-        this.currentPattern.add((int) (Math.random() * 4);
+        this.currentPattern.add((int) (Math.random() * 4));
     }
 
     // Scoring adds the number of correct answers per level passed
@@ -30,13 +38,13 @@ public class SimoneCore {
     // etc.
     // Should also have one of these that computes the score directly from the
     // current Player level
-    public void computeScore(int score) {
+    public int computeScore(int score) {
         return ( score * (score + 1)) / 2;
     }
 
     // Should also have one of these that computes the score directly from the
     // current Player level
-    public void computeScore() {
+    public int computeScore() {
         return ( score * (score + 1)) / 2;
     }
 
@@ -46,10 +54,11 @@ public class SimoneCore {
     public Player buildPlayer() {
     }
 
-    public void startGame() {
+    public static void startGame() {
+    
     }
 
-    public void quitGame() {
+    public static void quitGame() {
     }
 
     public void displayHighScore() {

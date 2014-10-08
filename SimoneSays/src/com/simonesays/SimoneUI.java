@@ -5,6 +5,8 @@
  */
 package com.simonesays;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author jpototsk
@@ -26,11 +28,11 @@ public class SimoneUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        greenbutton = new GreenButton();
-        redbutton = new RedButton();
-        bluebutton = new BlueButton();
-        yellowbutton = new YellowButton();
+        getContentPane().setPreferredSize(new Dimension(830, 520));
+        GreenButton greenbutton = new GreenButton();
+        RedButton redbutton = new RedButton();
+        BlueButton bluebutton = new BlueButton();
+        YellowButton yellowbutton = new YellowButton();
         JbuttonStart = new javax.swing.JButton();
         JbuttonQuit = new javax.swing.JButton();
         JLabelCurrentScore = new javax.swing.JLabel();
@@ -38,7 +40,7 @@ public class SimoneUI extends javax.swing.JFrame {
         PlayerName = new javax.swing.JTextField();
         JlabelBG = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.jScrollPane1();
-
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
         getContentPane().add(greenbutton);
@@ -76,11 +78,6 @@ public class SimoneUI extends javax.swing.JFrame {
         jScrollPane1.setBounds(640, 0, 190, 480);
 
         PlayerName.setText("Player");
-        PlayerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlayerNameActionPerformed(evt);
-            }
-        });
         getContentPane().add(PlayerName);
         PlayerName.setBounds(280, 110, 90, 30);
 
@@ -95,18 +92,17 @@ public class SimoneUI extends javax.swing.JFrame {
 
     private void JbuttonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonStartActionPerformed
         // TODO add your handling code here:
-        SimoneCore.startGame()
+        SimoneCore.startGame();
     }//GEN-LAST:event_JbuttonStartActionPerformed
 
     private void JbuttonQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonQuitActionPerformed
         // TODO add your handling code here:
-        SimoneCore.quitGame()
+        SimoneCore.quitGame();
     }//GEN-LAST:event_JbuttonQuitActionPerformed
-
-    
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -141,12 +137,12 @@ public class SimoneUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea HighScoreUI;
     private javax.swing.JLabel JLabelCurrentScore;
-    private javax.swing.JButton JbuttonBlue;
-    private javax.swing.JButton JbuttonGreen;
+    public static BlueButton bluebutton;
+    public static GreenButton greenbutton;
     private javax.swing.JButton JbuttonQuit;
-    private javax.swing.JButton JbuttonRed;
+    public static RedButton redbutton;
     private javax.swing.JButton JbuttonStart;
-    private javax.swing.JButton JbuttonYellow;
+    public static YellowButton yellowbutton;
     private javax.swing.JLabel JlabelBG;
     private javax.swing.JTextField PlayerName;
     private javax.swing.JScrollPane jScrollPane1;
