@@ -5,10 +5,12 @@ import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SimoneCore {
 
     static int returnedindex;
-    public static void main(String[] args) {
+    static Player currentplayer;
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
         // TODO Auto-generated method stub
         //
         // Testing
@@ -16,7 +18,8 @@ public class SimoneCore {
         Thread thread1 = new Thread(blinker);
         thread1.start();
         SimoneUI simone = new SimoneUI();
-        
+        displayHighScore();
+                
         
     }
 
@@ -39,21 +42,23 @@ public class SimoneCore {
     // etc.
     // Should also have one of these that computes the score directly from the
     // current Player level
-    public int computeScore(int score) {
-        return ( score * (score + 1)) / 2;
+    public int computeScore(Player p) {
+    	 int n = p.getCurrentLevel();
+    	 return ((n * (n+1)) / 2);
     }
 
     // Should also have one of these that computes the score directly from the
     // current Player level
-    public int computeScore(Player p) {
-        int n = p.getCurrentLevel();
-    	return ((n * (n+1)) / 2);
+    public int computeScore() {
+        return ( currentplayer.getScore() * (currentplayer.getScore() + 1)) / 2;
     }
 
     public int getUserInput() {
+    	
     }
 
-    public Player buildPlayer() {
+    public void buildPlayer() {
+    	currentplayer = new Player(SimoneUI.getPlayerName());
     }
 
     public static void startGame() {
@@ -62,12 +67,15 @@ public class SimoneCore {
 
     public static void quitGame() {
     }
-
     //Added routine here to get the HS.  Not exactly sure how we are to display that in the UI.  Needs work still.
-    public void displayHighScore() throws ClassNotFoundException, IOException {
-    	Player[] hsList = HighScore.getHSList();
-    	//need to add how to display here.
-    }
+    public static void displayHighScore() throws ClassNotFoundException, IOException {
+        	Player[] hsList = HighScore.getHSList();
+        	//need to add how to display here.
+        	for (int i=0; i < hsList.length; i++){
+        	SimoneUI.HighScoreUI.append(hsList[i].toString());
+        	}
+        }
+ 
 
     public void checkPattern() {
     }

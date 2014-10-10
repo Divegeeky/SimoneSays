@@ -9,11 +9,11 @@ import java.util.List;
 
 /**
  *
- * @author Jpototsk
+ * @author Jason Pototsky
  */
 public class Blinker implements Runnable{
-    public void blink(List<Integer> blinky){
-        for (int i=0; i<=blinky.size(); i++){
+    public void run(List<Integer> blinky){
+        for (int i : blinky){
             int blink = blinky.get(i);
             switch(blink){
                 case 0: 
@@ -30,19 +30,24 @@ public class Blinker implements Runnable{
                     break;
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(200);
             }
             catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
         }
+        try {
+			Thread.sleep(0);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
     }
-    public void run(List<Integer> blinky){
-        blink(blinky);
-    }
-
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+			Thread.sleep(0);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
     }
 }
