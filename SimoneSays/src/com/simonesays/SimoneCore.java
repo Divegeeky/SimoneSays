@@ -1,5 +1,6 @@
 package com.simonesays;
 
+import java.io.IOException;
 import java.math.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,9 @@ public class SimoneCore {
 
     // Should also have one of these that computes the score directly from the
     // current Player level
-    public int computeScore() {
-        return ( score * (score + 1)) / 2;
+    public int computeScore(Player p) {
+        int n = p.getCurrentLevel();
+    	return ((n * (n+1)) / 2);
     }
 
     public int getUserInput() {
@@ -61,7 +63,10 @@ public class SimoneCore {
     public static void quitGame() {
     }
 
-    public void displayHighScore() {
+    //Added routine here to get the HS.  Not exactly sure how we are to display that in the UI.  Needs work still.
+    public void displayHighScore() throws ClassNotFoundException, IOException {
+    	Player[] hsList = HighScore.getHSList();
+    	//need to add how to display here.
     }
 
     public void checkPattern() {
@@ -69,6 +74,8 @@ public class SimoneCore {
 
     // Not sure if this should be here, or if we should always submit to the
     // HighScore module and have that figure it out
+    // Update: We should just submit to the highscore module.  I put all the code in there to deal with this.
+    // HighScore.processScore(Player)
     public void checkHighScore() {
     }
 }
