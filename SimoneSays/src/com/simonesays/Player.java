@@ -36,6 +36,10 @@ public class Player {
 	public void setCurrentLevel(int currentLevel) {
 		this.currentLevel = currentLevel;
 	}
+	
+	public void incrementCurrentLevel() {
+		this.currentLevel++;
+	}
 
 	public int[] getByteArray() {
 		return inputArray;
