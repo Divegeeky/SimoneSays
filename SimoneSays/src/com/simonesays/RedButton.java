@@ -13,6 +13,7 @@ import java.awt.Color;
  */
 public class RedButton extends javax.swing.JButton {
     private int index = 1;
+    private boolean check = false;
     public RedButton(){
         this.setText("RED");
         this.setBackground(Color.RED);

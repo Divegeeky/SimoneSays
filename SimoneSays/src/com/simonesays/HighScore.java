@@ -1,5 +1,7 @@
 package com.simonesays;
 
+import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,15 +16,26 @@ public class HighScore implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public static Player[] getHSList() throws ClassNotFoundException, IOException {
-		FileInputStream fis = new FileInputStream("hs.lst");
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		Player[] readList = (Player[]) (ois.readObject());
-		ois.close();
-		return readList;
+	public static Player[] getHSList() throws ClassNotFoundException, IOException, FileNotFoundException {
+		Player[] readList = new Player[10];
+		File hs = new File("hs.lst");
+		if (!hs.exists()){
+			hs.createNewFile();
+		}
+		FileInputStream fis = new FileInputStream(hs);
+		try{
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			readList = (Player[]) (ois.readObject());
+			ois.close();
+			return readList;
+		}
+		catch (EOFException e){
+			return readList;
+		}
+
 	}
 	
-	public static void processScore(Player incPlayer) throws ClassNotFoundException, IOException {
+	public static void processScore(Player incPlayer) throws ClassNotFoundException, IOException, FileNotFoundException {
 		FileInputStream fis = new FileInputStream("hs.lst");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Player[] readList = (Player[]) (ois.readObject());

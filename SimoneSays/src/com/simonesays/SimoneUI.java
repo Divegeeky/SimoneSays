@@ -6,6 +6,8 @@
 package com.simonesays;
 
 import java.awt.Dimension;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JScrollPane;
 
@@ -47,7 +49,13 @@ public class SimoneUI extends javax.swing.JFrame {
         JbuttonStart.setText("Start Game");
         JbuttonStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbuttonStartActionPerformed(evt);
+                try {
+					JbuttonStartActionPerformed(evt);
+				} catch (ClassNotFoundException | IOException
+						| InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         getContentPane().add(JbuttonStart);
@@ -87,7 +95,7 @@ public class SimoneUI extends javax.swing.JFrame {
         pack();
     }
 
-    private void JbuttonStartActionPerformed(java.awt.event.ActionEvent evt) {
+    private void JbuttonStartActionPerformed(java.awt.event.ActionEvent evt) throws ClassNotFoundException, FileNotFoundException, IOException, InterruptedException {
      
         SimoneCore.startGame();
     }

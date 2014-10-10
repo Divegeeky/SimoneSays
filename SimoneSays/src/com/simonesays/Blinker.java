@@ -30,7 +30,7 @@ public class Blinker implements Runnable{
                     break;
             }
             try {
-                Thread.sleep(200);
+                Thread.sleep(1000);
             }
             catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
