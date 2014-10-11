@@ -34,6 +34,6 @@ public class GreenButton extends javax.swing.JButton{
         catch(InterruptedException ex){
             Thread.currentThread().interrupt();
         }
-        this.setBackground(Color.GREEN);
+        setBackground(Color.GREEN);
     }
 }

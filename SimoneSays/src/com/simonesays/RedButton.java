@@ -13,7 +13,6 @@ import java.awt.Color;
  */
 public class RedButton extends javax.swing.JButton {
     private int index = 1;
-    private boolean check = false;
     public RedButton(){
         this.setText("RED");
         this.setBackground(Color.RED);
@@ -28,7 +27,7 @@ public class RedButton extends javax.swing.JButton {
         SimoneCore.returnedindex = index;
     }
     public void blink(){
-        this.setBackground(Color.white);
+       this.setBackground(Color.white);
         try {
             Thread.sleep(1000);
         }

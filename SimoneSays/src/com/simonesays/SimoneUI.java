@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.simonesays;
 
 import java.awt.Dimension;
@@ -23,19 +18,12 @@ public class SimoneUI extends javax.swing.JFrame {
     public SimoneUI() {
         initComponents();
     }
-    public static String getPlayerName(){
-    	return PlayerName.getText();
-    }
+    
     private void initComponents() {
         getContentPane().setPreferredSize(new Dimension(830, 520));
-        GreenButton greenbutton = new GreenButton();
-        RedButton redbutton = new RedButton();
-        BlueButton bluebutton = new BlueButton();
-        YellowButton yellowbutton = new YellowButton();
         JbuttonStart = new javax.swing.JButton();
         JbuttonQuit = new javax.swing.JButton();
         JLabelCurrentScore = new javax.swing.JLabel();
-        HighScoreUI = new javax.swing.JTextArea();
         PlayerName = new javax.swing.JTextField();
         JlabelBG = new javax.swing.JLabel();
         jScrollPane1 = new JScrollPane();
@@ -91,7 +79,7 @@ public class SimoneUI extends javax.swing.JFrame {
         JlabelBG.setName(""); // NOI18N
         getContentPane().add(JlabelBG);
         JlabelBG.setBounds(0, 0, 640, 480);
-
+    	blinker = new Blinker();
         pack();
     }
 
@@ -107,9 +95,14 @@ public class SimoneUI extends javax.swing.JFrame {
    
     /**
      * @param args the command line arguments
+     * @throws IOException 
+     * @throws ClassNotFoundException 
      */
     
-    public static void main(String args[]) {
+    public static void main(String[] args) throws ClassNotFoundException, IOException, InterruptedException {
+        // TODO Auto-generated method stub
+        //
+        // Testing
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -132,19 +125,23 @@ public class SimoneUI extends javax.swing.JFrame {
                 new SimoneUI().setVisible(true);
             }
         });
+        SimoneCore.displayHighScore();
+        SimoneCore.buildPlayer();
+        
     }
 
     // Variables declaration//
-    public static javax.swing.JTextArea HighScoreUI;
+    public static javax.swing.JTextArea HighScoreUI = new javax.swing.JTextArea();;
     private javax.swing.JLabel JLabelCurrentScore;
-    public static BlueButton bluebutton;
-    public static GreenButton greenbutton;
+    public static BlueButton bluebutton = new BlueButton();
+    public static GreenButton greenbutton = new GreenButton();
     private javax.swing.JButton JbuttonQuit;
-    public static RedButton redbutton;
+    public static RedButton redbutton = new RedButton();
     private javax.swing.JButton JbuttonStart;
-    public static YellowButton yellowbutton;
+    public static YellowButton yellowbutton = new YellowButton();
     private javax.swing.JLabel JlabelBG;
-    private static javax.swing.JTextField PlayerName;
+    public static javax.swing.JTextField PlayerName;
     private javax.swing.JScrollPane jScrollPane1;
+    public static Blinker blinker;
     // End of variables declaration//
 }
